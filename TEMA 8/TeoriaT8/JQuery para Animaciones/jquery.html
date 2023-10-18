@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery</title>
+    <!--Script que implementa librería jquery vía cdn. También podría descargarse e incluirlo localmente-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        .animado {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p id="parrafo1">fadeOut</p>
+    <p id="parrafo2">fadeIn</p>
+    <p id="parrafo3">slideUp</p>
+    <p id="parrafo4">slideDown</p>
+    <p id="parrafo5">show</p>
+    <p id="parrafo6">hide </p> -->
+
+    <button id="boton">Pincha aqui para modificar el cuadrado</button>
+    <div class="animado"></div>
+    <script>
+        $("#parrafo1").fadeOut(500);
+        $("#parrafo2").fadeIn(500);
+        $("#parrafo3").slideUp(500);
+        $("#parrafo4").slideDown(500);
+        $("#parrafo5").show(500);
+        $("#parrafo6").hide(500);
+
+        $("#boton").click(function () { //selección elemento por id boton. Cuando se haga click sobre el, se realizará una función
+            $(".animado").animate({ width: "+=25px", height:"+=10px"}) // función, selecciona elemento con clase animado y realiza animación, otorgandole un ancho de +25px y altura +10px
+        }
+        )
+    </script>
+</body>
+
+</html>

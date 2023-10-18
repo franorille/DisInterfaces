@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria Tema 7</title>
+    <style>
+        .audio, .video{
+            text-align: center;
+        }
+        details summary::marker{
+            background-color: blue;
+            color:red;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <details>
+        <p>hola estoy oculto</p>
+        <summary>esto esta visible</summary>
+    </details>
+    <dialog>aqui va un dialog</dialog>
+
+    <script>
+        function muestra() {
+            var elemento = document.getElementById("escondido")
+            var estado = elemento.getAttribute("hidden");
+
+
+            var estaOculto = (estado !== null); // Comprueba si el atributo hidden es null o no. Es decir, si existe es que tiene el atributo hidden
+            // y por tanto no está visible, por lo que para hacerlo visible, debe eliminiarse el atributo.
+            // de lo contrario, de tener un valor null, significa que no tiene atributo hidden, por lo que está visible. En este caso para ocultarlo
+            // se debe incluir el atributo hidden, con un valor true al elemento html para hacerlo desaparecer.
+
+
+
+            if (estaOculto) {
+                elemento.removeAttribute("hidden"); // Muestra el elemento
+            } else {
+                elemento.setAttribute("hidden", "true"); // Oculta el elemento
+            }
+
+        }
+    </script>
+
+    <button onclick="muestra()">muestra</button>
+    <p id="escondido" hidden=true>este es un parrafo que voy a ocultar</p>
+
+    <div>
+        <p contenteditable>parrafo editable</p>
+    </div>
+
+    <div class="audio">
+        <details>
+            <summary>Abrir control audio</summary>
+            <audio src="/TEMA 7/TeoriaT7/AudioVideo/carengine-5998.mp3" controls loop></audio>
+        </details>
+    </div>
+    <div class="video">
+        <video src="/TEMA 7/TeoriaT7/AudioVideo/rallye_-_1295 (720p).mp4" controls width="720px"></video>
+    </div>
+
+</body>
+
+</html>

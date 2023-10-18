@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria T9 Eventos JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        #cajaAuxiliar {
+            height: 200px;
+            /* Establece la altura deseada */
+            overflow: auto;
+            /* Agrega desplazamiento si es necesario */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- <div id="salida"></div>
+    <input type="text" id="tecla"> -->
+
+    <!-- <textarea name="caja" id="cajaAuxiliar" cols="30" rows="10"></textarea>-->
+    <div id="numeroScroll"></div>
+    <p>hola</p>
+
+
+    <script type="text/javascript">
+
+        //EVENTOS DE TECLADO -->  keyup()   keydown()   keypress()
+
+        // EVENTO ASOCIADO A ELEMENTO input con id tecla
+        // $(document).ready(function () {
+
+        //     $("#tecla").keydown(function () {
+
+        //         $("#salida").text("la tecla pulsada es : " + event.which);
+
+        //         $("#tecla").val(""); // para que vuelva a estar en blanco cada vez que te dice una tecla
+        //     });
+        // })
+
+
+
+        // $(document).ready(function () {
+
+        //     $(document).keydown(function () { //EVENTO ASOCIADO A TODO EL DOCUMENTO
+
+        //         $("#salida").text("la tecla pulsada es : " + event.which);
+
+        //         $("#tecla").val(""); // para que vuelva a estar en blanco cada vez que te dice una tecla
+        //     });
+        // })
+
+
+        /*EVENTOS DE VENTANA --> load()    unload()    scroll()    resize()
+        */
+
+        // var $contador = 0;
+        // $(window).resize(function () {
+        //     $("#numeroScroll").text("");
+        //     $("#numeroScroll").prepend("<p> Anchura ventana: " + $(window).width() + " Altura ventana : " + $(window).height() + "</p>");
+        // })
+
+
+        /*
+        EVENTOS DE RATON --> click()     dbclick()  hover()     mousedown()     mouseup()     mouseleave()      mouseenter()*/
+
+        $(document).ready(function(){
+            $(document).dblclick(function(){
+                $("#numeroScroll").text("Has hecho doble click");
+            })
+            $(document).click(function(){
+                $("#numeroScroll").text("Has hecho click");
+            })
+            $("p").hover(function(){
+                $("#numeroScroll").text("Has pasado por encima de hola");
+            })
+            $(document).mousedown(function(){
+                $("#numeroScroll").text("Estas apretando el raton");
+            })
+        })
+    </script>
+</body>
+
+</html>

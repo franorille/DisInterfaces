@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Lista compra">
+    <title>Actividad 2 Tema 9 Lista de la compra</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <style>
+        .comprado {
+
+            color: white;
+
+            background-color: green;
+        }
+
+        .noComprado {
+            color: black;
+
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            $("#send").click(function () {
+                var item = $("#item").val();
+
+                var itemTrimado = item.trim();
+
+                if (compruebaItem(itemTrimado)) {
+                    $("#contenedorLista").append("<li class='noComprado'>" + itemTrimado + "</li><br>");
+                }
+
+                $("#item").val("");
+
+            });
+
+            $("#contenedorLista").on("click", "li", cambiaColor);
+
+            $(document).on("mouseenter", "li", function () {
+
+                var estado = $(this).attr("class");
+                if (estado == "comprado") {
+                    $("#info").html("El artículo <b>" + $(this).text() + "</b> está comprado");
+                } else {
+                    $("#info").html("El artículo <b>" + $(this).text() + " </b>no se ha comprado todavía");
+                }
+
+            });
+
+
+            $(document).on("mouseleave", "li", function () {
+
+                var estado = $(this).attr("class");
+                $("#info").text("");
+            });
+
+            var contadorScroll = 0;
+            $(document).scroll(function () {
+                contadorScroll++;
+                $("#contadorScroll").html("Has hecho esta cantidad de scroll " + contadorScroll + "<br> <a href='#item'>Inicio</a>");
+
+            })
+
+            // $(document).on("scroll", infoTop);
+        });
+
+
+        // });
+
+        function cambiaColor() {
+            $(this).toggleClass("comprado noComprado");
+        }
+
+        function compruebaItem(item) {
+
+            if (item != "") {
+
+                var listaItems = document.getElementsByTagName("li");
+
+                for (let i = 0; i < listaItems.length; i++) {
+                    if (listaItems[i].textContent === item) {
+                        alert("El artículo ya está en la lista")
+                        return false;
+                    }
+                } return true;
+            }
+            alert("Introduce un item");
+            return false;
+
+        }
+        // function infoTop() {
+        //     // $("#infoTop").show();
+        //     $("a.enlaceVolver").click(function (event) {
+        //         event.preventDefault();
+        //         $("html, body").animate({
+        //             scrollTop: $($(this).attr("href")).offset().top
+        //         }, 100)
+        //     })
+        // };
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <label for="item">Producto: </label>
+        <input type="text" name="item" id="item" placeholder="Añade un producto">
+        <input type="button" value="Añadir" id="send">
+    </form>
+
+    <div>
+        <ul id="contenedorLista">
+
+        </ul>
+
+    </div>
+
+
+    <p id="info">el estado es: </p>
+    <p id="contadorScroll"></p>
+
+
+</body>
+
+</html>

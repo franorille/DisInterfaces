@@ -1,0 +1,14 @@
+$fondo: orange;
+@import "config.scss";
+@mixin tamanoContenedor ($ancho,$alto:$ancho){ //:ancho es opcional por estar después de los dos puntos
+    width: $ancho;
+    height: $alto;
+}
+body{background-color: $fondo;
+width: 100vw;
+height: 100vh;}
+
+.container{
+@include tamanoContenedor(200px+305px);
+background-color: blue;
+}

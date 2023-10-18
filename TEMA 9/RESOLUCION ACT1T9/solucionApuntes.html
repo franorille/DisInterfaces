@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Lista de la compra">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 9. Actividad 1</title>
+    <style>
+        .comprado {
+            font-size: xx-large;
+            color: white;
+            padding: 15px;
+            margin: 15px;
+            background-color: green;
+        }
+
+        .nocomprado {
+            font-size: xx-large;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Actividad 1. Lista de la compra.</h1>
+    <form>
+        <span id="info"></span>
+        <br>
+        <br>
+        <label for="articulo">Artículo</label>
+        <input type="text" id="articulo" name="articulo">
+        <button id="btnAdd">Añadir</button>
+        <ul id="lista"></ul>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(document).on("click", "#btnAdd", addArticulo);
+
+            $(document).on("click", "ul li", cambiaEstado);
+
+            $(document).on("mouseenter", "ul li", informaEstado);
+
+            $(document).on("mouseleave", "ul li", borraInfo);
+        });
+
+        function addArticulo(event) {
+            event.preventDefault();
+
+            var valorCaja = $("#articulo").val();
+
+            if (valorCaja.trim() != "") {
+                var estaEnLaLista = isArticuloEnLaLista(valorCaja.trim());
+
+                if (!estaEnLaLista) {
+                    $("#info").html("");
+                    $("#lista").append('<li class="nocomprado">'+ valorCaja + '</li>');
+
+                } else {
+
+                    alert("El artículo ya está en la lista");
+                }
+
+            } else {
+
+                $("#info").html("Necesario un valor para el artículo");
+
+                $("#articulo").focus();
+            }
+            $("#articulo").val("");
+        }
+        function isArticuloEnLaLista(valorCaja) {
+
+            var retorno = false;
+
+            $('ul li').each(function (i) {
+
+                var text = $(this).text();
+
+                if (valorCaja == text) {
+                    retorno = true;
+                }
+            });
+
+            return retorno;
+        }
+        function informaEstado() {
+
+            var articulo = $(this).text().toUpperCase();
+
+            var estado = $(this).attr("class");
+
+            if (estado == "comprado") {
+
+                $("#info").html("El artículo [" + articulo + "] ya está COMPRADO");
+
+            } else {
+
+                $("#info").html("El artículo [" + articulo + "] NO SE HA COMPRADO");
+
+            }
+        }
+        function borraInfo() {
+
+            $("#info").html("");
+            
+        }
+        function cambiaEstado() {
+            //Corresponden con los estilos defidos en <style>
+            $(this).toggleClass('comprado nocomprado');
+        }
+    </script>
+
+    <body>
+
+</html>

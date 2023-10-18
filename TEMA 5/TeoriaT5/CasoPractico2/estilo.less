@@ -1,0 +1,46 @@
+@tamanoLetra:16px;
+@colorLetra:black;
+@tipoLetraCabecera:courier;
+@tipoLetraTexto:arial;
+@bgCabeceraPrincipal:rgb(239, 53, 53);
+@bgCabeceraSecundaria:rgb(77, 158, 77);
+@alturaBannerSecundario: 30px;
+@margenCabecera:10px;
+@column-gap:130px;
+.cabeceraComun{
+    text-align: center;
+    font-family: @tipoLetraCabecera;
+    align-items: center;
+    margin-bottom: @margenCabecera;
+    
+}
+.textoComun{
+    font-size: @tamanoLetra;
+}
+.cabecera{
+    .cabeceraComun;
+    height: @alturaBannerSecundario*5;
+    background-color: @bgCabeceraPrincipal;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+ }
+.cabeceraSecundaria{
+    .cabeceraComun;
+    height: @alturaBannerSecundario;
+    background-color: @bgCabeceraSecundaria;
+}
+.tabla{
+    margin: 20px auto;
+   
+    
+    tr{
+        td{
+            border-collapse: separate;
+            gap: @column-gap;
+            text-align: left;
+        }
+    }
+    
+    
+}

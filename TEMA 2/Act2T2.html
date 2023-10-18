@@ -1,0 +1,87 @@
+<!-- CODIGO A REVISAR
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+ <h1><center>Formulario. Página de contacto</center></h1>
+<p>A través de este formulario se realizará el envío de cualquier sugerencia. En los cuadros de
+texto intreduce los datos solicitados y a continuación, escoge el tipo de dispositivo que utilizas
+para visitar este sitio web. Finalmente, pulsa Enviar mensaje, si quieres dejar más de un mensaje
+basta con pulsar Comenzar de nuevo. </p>
+<form action="">
+ <fieldset>
+ <legend>Mensaje</legend>
+ <p><label>Tu nombre: <type="text" name="nombre"></label></p>
+ <p><label>Tu dirección de correo: <input type="text" name="correo"></label></p>
+ <p>
+ <label>
+ Tu mensaje:<br>
+ <textarea name="mensaje"></textarea>
+ </label>
+ </p>
+ </fieldset>
+ <fieldset>
+ <legend>Nuevos temas</legend>
+ <p>
+ ¿Qué dispositivo has utilizado para acceder a este sitio web?<br>
+ <label><input type="" name="ordenador"> Ordenador</label>
+ <label><input type="" name="moval"> Móvil </label>
+ <label><input type="" name="tablet"> Tablet</label>
+ <label><input type="" name="otros"> otros</label>
+ </p>
+ </fieldset>
+ <p>
+ <input type="" value="Enviar mensaje">
+ <input type="" value="Comenzar de nuevo">
+</p>
+</form>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <h1>
+        <center>Formulario. Página de contacto</center>
+    </h1>
+    <p>A través de este formulario se realizará el envío de cualquier sugerencia. En los cuadros de
+        texto intreduce los datos solicitados y a continuación, escoge el tipo de dispositivo que utilizas
+        para visitar este sitio web. Finalmente, pulsa Enviar mensaje, si quieres dejar más de un mensaje
+        basta con pulsar Comenzar de nuevo. </p>
+    <form action="">
+        <fieldset>
+            <legend>Mensaje</legend>
+            <p><label for="nombre">Tu nombre: <input type="text" name="nombre" id="nombre"></label></p>
+            <p><label for="direccion">Tu dirección de correo: <input type="text" name="correo" id="direccion"></label></p>
+            <p>
+                <label for="mensaje">
+                    Tu mensaje:<br>
+                    <textarea name="mensaje" id="mensaje"></textarea>
+                </label>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Nuevos temas</legend>
+            <p>
+                ¿Qué dispositivo has utilizado para acceder a este sitio web?<br>
+                <label><input type="checkbox" name="ordenador"> Ordenador</label>
+                <label><input type="checkbox" name="moval"> Móvil </label>
+                <label><input type="checkbox" name="tablet"> Tablet</label>
+                <label><input type="checkbox" name="otros"> otros</label>
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Enviar mensaje">
+            <input type="button" value="Comenzar de nuevo">
+        </p>
+    </form>
+</body>
+
+</html>

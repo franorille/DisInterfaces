@@ -1,0 +1,32 @@
+$colorTexto:black;
+$colorFondo:green;
+$tamanoTexto:16;
+$tipoLetraTitulo:Helvetica;
+$tipoLetraTexto:courier;
+$alturaBannerSecundario:60px;
+
+@mixin formatoCabeceraComun{
+    text-align: center;
+    font-weight: 700;
+    font-family: $tipoLetraTitulo;
+    background-color: $colorFondo;
+    height: 5*$alturaBannerSecundario;
+    border:1px solid blue;
+}
+@mixin formatoTexto{
+    font-family: $tipoLetraTexto;
+    color:$colorTexto;
+}
+
+.titulo{
+    @include formatoCabeceraComun();
+}
+
+body{
+    @include formatoTexto();
+}
+
+.bannerSecundario{
+    height: $alturaBannerSecundario;
+    border: 1px solid red;
+}

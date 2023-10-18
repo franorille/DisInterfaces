@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso práctico 2 JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <input type="text" style="width: 275px;" name="cajaTexto" id="cajaTexto"
+        placeholder="Introduce una letra para detectar el caracter">
+    <p id="parrafo"></p>
+    <script>
+        $(document).ready(function () {
+            $("#cajaTexto").keydown(function (e) {
+                e.preventDefault();
+                //e.preventDefault(); para evitar el comportamiento predeterminado del evento.
+                //  En este caso, previene que la tecla presionada tenga un efecto normal en el elemento de entrada de texto.
+                //  Esto evita que se escriba texto en la caja de texto cuando se presionan teclas.
+                
+                $("#parrafo").html("La tecla pulsadta tiene el número UNICODE: <strong>" + e.which + "</strong>, que equivale a la letra: <strong>" + String.fromCharCode(e.which) + "</strong>");
+                
+                //.html( para cambiar el contenido HTML de ese elemento) 
+
+                // $("#cajaTexto").val("");
+            })
+        })
+    </script>
+</body>
+
+</html>

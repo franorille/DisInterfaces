@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Lista compra">
+    <title>Actividad 1 Tema 9 Lista de la compra</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    
+    <style>
+        .comprado {
+
+            color: white;
+
+            background-color: green;
+        }
+
+        .noComprado {
+            color: black;
+
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {// asegura que el script jQuery se ejecute una vez que el documento HTML esté completamente cargado y listo para manipularse.
+
+            $("#send").click(function () { // seleccionando el elemento con el id "send" y se está configurando un evento de clic (click) en él. Cuando se hace clic en el botón con id "send", se ejecutará la función que sigue.
+                var item = $("#item").val(); //val es para acceder o modificar el contenido de un campo de entrada input, select etc..
+                
+                var itemTrimado = item.trim(); // trimamos el valor para eliminarle espacios
+                
+                if (compruebaItem(itemTrimado)) { //llamada a la función que comprueba si el item está ya en la lista o no, en caso de no estarlo añade
+                    $("#contenedorLista").append("<li class='noComprado'>" + itemTrimado + "</li><br>"); // Si el artículo es válido, se agrega a la lista dentro del elemento con id "contenedorLista". Se crea un nuevo elemento li con una clase "noComprado" y el artículo ingresado se agrega como su contenido.
+                }
+                
+                $("#item").val(""); //reestablecimiento en blanco del campo de entrada de texto
+
+            });
+
+            $("#contenedorLista").on("click", "li", cambiaColor); //Esta línea establece un evento de clic en el contenedor de la lista con id "contenedorLista". Cuando se hace clic en un elemento li dentro de ese contenedor, se ejecuta la función cambiaColor.
+
+            $(document).on("mouseenter", "li", function () { // configura un evento de "mouseenter" para todos los elementos li en el documento. Cuando el mouse entra en un elemento li, se ejecuta la función anónima que sigue.
+
+                var estado = $(this).attr("class"); // obtención del valor del atributo class con el método attr()
+                if (estado == "comprado") { // verificamos si el estado es comprado
+                    $("#info").html("El artículo <b>" + $(this).text() + "</b> está comprado");
+                    //metodo text para acceder al contenido de la li en formato texto (no quiero etiquetas)
+                    //metodo html para construir un texto que si incluye etiquetas sean interpretadas en el navegador
+                } else {
+                    $("#info").html("El artículo <b>" + $(this).text() + " </b>no se ha comprado todavía");
+                }
+
+            });
+
+
+            $(document).on("mouseleave", "li", function () { // configuar evento mouseleave, para todos los elementos li, que se encuentren en el documento. Cuando sale el mouse de cualquier de ellos se ejecuta la función
+            
+                var estado = $(this).attr("class");
+                $("#info").text(""); // se borra el contenido del elemento con id info 
+            });
+
+        });
+
+        function cambiaColor() { // funcion que es llamada en  $("#contenedorLista").on("click", "li", cambiaColor);
+            $(this).toggleClass("comprado noComprado"); // toggleClass permite cambiar las clases de los elementos pasando de uno a otro
+        }
+
+        function compruebaItem(item) { // función que comprueba si un item introducido ya estaba en la lista o no
+
+            if (item != "") { // comprobamos que el campo de entrada no este vacio
+
+                var listaItems = document.getElementsByTagName("li"); // obtenemos todos los elementos li del documento
+
+                for (let i = 0; i < listaItems.length; i++) { // recorremos el array en el que se han almacenado todos los elementos li
+                    if (listaItems[i].textContent === item) { // comprobamos uno por uno si el elemento pasado por parámetro (el que el usuario está introduciendo) ya estaba previamente en array
+                        alert("El artículo ya está en la lista")
+                        return false; // en caso de estar en la lista previamente, función devuelve falso
+                    }
+                } return true; // si no estaba previamente en la lista, función devuelve true. (servirá de condición para seguir con la función que llamó a esta)
+            }
+            alert("Introduce un item"); // en caso de pulsar el boton de añadir con el campo vacio
+            return false;
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <label for="item">Producto: </label>
+        <input type="text" name="item" id="item" placeholder="Añade un producto">
+        <input type="button" value="Añadir" id="send">
+    </form>
+
+    <div>
+        <ul id="contenedorLista">
+
+        </ul>
+
+    </div>
+
+
+    <p id="info">el estado es: </p>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+$colorLetra: #000000;
+$colorTitulo: red;
+$colorCabecera: rgb(180, 179, 179);
+$colorFilaImpar: rgb(163, 163, 236);
+
+$colorEnlaceNoVisitado: grey;
+$colorEnlaceVisitado: red;
+$fuenteDestacado: bold;
+
+$bgBody: rgb(210, 209, 209);
+
+$borderRadius: 15px;
+
+$tipoLetra: arial;
+$tamanoLetra: 12px;
+$tamanoTitulo: 2 * $tamanoLetra;
+$alineadoUl: left;
+$alineadoCabecera: center;
+
+$altoCabecera: 20em;
+
+@mixin centraElementosInterior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: $tamanoLetra;
+  font-family: $tipoLetra;
+}
+
+img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+.row {
+  display: table;
+  width: 100%;
+}
+[class*="column-"] {
+  float: left;
+  width: 100%;
+  padding: 1em;
+  margin: 15px auto;
+}
+.column-4 {
+  width: 33.33333%;
+}
+.alineadoCentro {
+  text-align: $alineadoCabecera;
+}
+ul {
+  text-align: $alineadoUl;
+}
+h1 {
+  font-size: $tamanoLetra * 3;
+}
+.cabecera {
+  border-radius: $borderRadius;
+  background-color: $colorCabecera;
+  height: $altoCabecera;
+  @include centraElementosInterior;
+}
+.centraElemento {
+  margin-top: 20px;
+}
+.destacado {
+  font-weight: $fuenteDestacado;
+  margin-bottom: 5px;
+}
+table {
+  margin: 10px auto;
+  width: 15%;
+  thead {
+    background-color: $colorCabecera;
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background-color: $colorFilaImpar;
+    }
+  }
+}
+.contenedorLista{
+    margin:20px auto;
+    width: 10%;
+    border-radius: $borderRadius;
+    background-color: $bgBody;
+    padding: 1px 15px;
+}
+ul {
+  margin: 15px auto;
+  li {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    span{
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        width: 12%;
+        height: 12%;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+  }
+}
+a:hover{
+    background-color: aqua;
+    
+
+}
+a{
+    text-align: center;
+    display: block;
+    width: 15%;
+    margin: 5px auto;
+    color: $colorLetra;
+    text-decoration:double;
+    
+    
+}
