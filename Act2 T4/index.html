@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Carousel Template · Bootstrap v5.3</title>
+
+    <link rel="stylesheet" href="/Act2 T4/css/bootstrap.min.css">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Carousel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Cabecera 1</h1>
+            <p class="opacity-75">Este es el contenido de la primera cabecera<br>
+            Se puede insertar el contenido deseado con múltiples líneas</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="https://img.freepik.com/vector-premium/linda-imagen-vectorial-dibujos-animados-estrellas-brillantes-amarillas_423491-67.jpg?w=2000" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+        <h2 class="fw-normal">Heading 1</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p><a class="btn btn-danger" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="https://img.freepik.com/vector-premium/imagen-dibujos-animados-hongo-palabra-hongo_587001-200.jpg?w=2000" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+        <h2 class="fw-normal">Heading 2</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p><a class="btn btn-info" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="https://1.bp.blogspot.com/-9qTqML36YLQ/XusRRnILTBI/AAAAAAAAZCM/-8XBDPVbCr4x3LXjixAZ-gXgC2bmuKeOgCK4BGAsYHg/s925/Captura%2Bde%2Bpantalla%2B2020-06-18%2Ba%2Blas%2B9.00.44.png" style="object-fit: cover;" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+        <h2 class="fw-normal">Heading 3</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
+        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+      </div>
+      <div class="col-md-5">
+        <img style="object-fit: cover; width: 500px; height: 500px;" src="data:image/png;base64,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" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/></img>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
+        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</main>
+<script src="/Act2 T4/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
